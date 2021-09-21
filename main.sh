@@ -32,20 +32,29 @@ function install_bbr() {
 
 GetIp
 
+# ip_info=$(curl ip.gs/json)
+# ip_ip=$(echo $ip_info | jq .ip)
+# ip_country=$(echo $ip_info | jq .country)
+# ip_region=$(echo $ip_info | jq .region_name)
+# ip_city=$(echo $ip_info | jq .city)
+
 clear
+echo ""
 echo "==========================================================================="
 echo -e "${RED}Main page:${RES}"
-echo -e "${GREEN}Your IP: $URIP${RES}"
+echo -e "${GREEN}Your IP: $MAINIP${RES}"
 echo ""
 echo -e "  ${YELLOW}1.DD system${RES}                                   ${YELLOW}2.Install bbr${RES}"
 echo ""
 echo -e "  ${YELLOW}3.Install bt Panel${RES}                            ${YELLOW}4.Install v2ray${RES}"
 echo ""
-echo -e "  ${YELLOW}5.Modify SSH Port (for defaut port 22)${RES}        ${YELLOW}6.Install vim and bc${RES}"
+echo -e "  ${YELLOW}5.Modify SSH Port (for defaut port 22)${RES}        ${YELLOW}6.Unixbech一键跑分${RES}"
 echo ""
-echo -e "  ${YELLOW}7.Install screen${RES}                              ${YELLOW}8.Upgrade sqlite3${RES}" 
+echo -e "  ${YELLOW}7.Install docker${RES}                              ${YELLOW}8.Upgrade sqlite3${RES}" 
 echo ""
-echo -e "  ${YELLOW}9.Set localtime to China zone${RES}                 ${YELLOW}0.VPS info${RES}"
+echo -e "  ${YELLOW}9.Set localtime to China zone${RES}                 ${YELLOW}10.VPS info${RES}"
+echo ""
+echo -e " ${YELLOW}11.Test speed (bench.sh)${RES}                       ${YELLOW}12.Install python3.9${RES}"
 echo ""
 echo -e "${RED}Written by Richard, updated on 2021/08/20${RES}"
 echo "==========================================================================="
@@ -76,14 +85,12 @@ elif [ "$main_no" = "5" ]; then
 	echo""
 	echo "Service sshd has been restarted. Please use the new SSH port to login."
 elif [ "$main_no" = "6" ]; then
-	yum -y install vim-enhanced
-	yum -y install bc
+	wget --no-check-certificate https://github.com/teddysun/across/raw/master/unixbench.sh && chmod +x unixbench.sh && ./unixbench.sh
 elif [ "$main_no" = "7" ]; then
-	yum -y install screen
+	curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 	echo ""
-	echo "screen -S xxx    #creat a new screen named xxx"
-	echo "screen -r xxx    #recall the screen named xxx"
-	echo "exit             #shut off the current screen session"
+	echo "Please run 'service docker start' to start docker service."
+	echo "Or run 'systemctl enable docker' to make docker autostart when the system reboots."
 elif [ "$main_no" = "8" ]; then
 	wget https://github.com/hityne/centos/raw/main/upgrade-sqlite3.sh && chmod a+x upgrade-sqlite3.sh && bash upgrade-sqlite3.sh
 	
@@ -91,7 +98,7 @@ elif [ "$main_no" = "9" ]; then
 	rm -rf /etc/localtime
 	ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 	date -R
-elif [ "$main_no" = "0" ]; then
+elif [ "$main_no" = "10" ]; then
 	echo ""
 	echo -e "${BLUE}[1]系统版本号：${RES}"
 	cat /etc/redhat-release
@@ -119,9 +126,19 @@ elif [ "$main_no" = "0" ]; then
 	echo -e "${BLUE}[9]防火墙状态：${RES}"
 	firewall-cmd --state
 	echo ""
-	echo -e "${BLUE}[10]上次登录信息：${RES}"
+	echo -e "${BLUE}[10]SELinux状态：${RES}"
+	/usr/sbin/sestatus -v
+	echo ""
+	echo -e "${BLUE}[11]上次登录信息：${RES}"
 	last | awk 'NR==2'
 	echo ""
+	
+elif [ "$main_no" = "11" ]; then	
+	wget -qO- bench.sh | bash
+
+elif [ "$main_no" = "12" ]; then	
+	wget https://raw.githubusercontent.com/hityne/centos/main/install_python3.sh && chmod +x install_python3.sh && bash install_python3.sh	
+	
 else
 exit 0
 
