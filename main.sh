@@ -91,6 +91,7 @@ elif [ "$main_no" = "7" ]; then
 	echo ""
 	echo "Please run 'service docker start' to start docker service."
 	echo "Or run 'systemctl enable docker' to make docker autostart when the system reboots."
+	echo ""
 elif [ "$main_no" = "8" ]; then
 	wget https://github.com/hityne/centos/raw/main/upgrade-sqlite3.sh && chmod a+x upgrade-sqlite3.sh && bash upgrade-sqlite3.sh
 	
