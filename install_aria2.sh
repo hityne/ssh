@@ -39,10 +39,11 @@ if systemctl is-active docker &>/dev/null ;then
 				  -p 6880:6880 \
 				  p3terx/ariang
 
-
+		echo ""
 		echo "Aria2 and AriaNG has been set up on your host."
-		echo "Vist http://yourip:6880 to do your downloads."
-
+		echo "Vist http://yourip:6880 and config Aria2 RPC token."
+		echo "And then you can do your downloads freely."
+		echo ""
 
 else
 		echo "docker未启动"
