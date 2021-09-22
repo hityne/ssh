@@ -54,7 +54,7 @@ echo -e "  ${YELLOW}7.Install docker${RES}                              ${YELLOW
 echo ""
 echo -e "  ${YELLOW}9.Set localtime to China zone${RES}                 ${YELLOW}10.VPS info${RES}"
 echo ""
-echo -e " ${YELLOW}11.Test speed (bench.sh)${RES}                       ${YELLOW}12.Install python3.9${RES}"
+echo -e " ${YELLOW}11.Test speed (bench.sh)${RES}                       ${YELLOW}12.Install python3${RES}"
 echo ""
 echo -e "${RED}Written by Richard, updated on 2021/09/22${RES}"
 echo "==========================================================================="
