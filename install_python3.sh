@@ -13,15 +13,27 @@ python3 -V
 
 read -s -n1 -p "Press any key to continue..." 
 
+
+echo ""
+read -p "Please choose the version of Python 3 [1. v3.8.10, 2. v3.9.7] " version_no
+
+if [ '$version_no' = '1']; then
+	version_id='3.8.10'
+else
+	version_id='3.9.7'
+fi
+
+echo ""
+echo "Python$version_id will be installed."
 #安装依赖
-yum install openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel
+yum install openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel gcc-c++
 
 #下载安装包。更多版本见https://www.python.org/ftp/python 
-wget https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz
+wget https://www.python.org/ftp/python/$version_id/Python-$version_id.tgz
 
 #解压并进入目录
-tar xzvf Python-3.9.6.tgz
-cd Python-3.9.6
+tar xzvf Python-$version_id.tgz
+cd Python-$version_id
 
 #设置默认安装目录
 mkdir /usr/local/python3
