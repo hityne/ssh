@@ -8,6 +8,8 @@ BLUE='\E[1;34m'     # 蓝
 PINK='\E[1;35m'     # 粉红
 RES='\E[0m'          # 清除颜色
 
+clear
+
 echo ""
 echo -e "${BLUE}[1]系统版本号：${RES}"
 cat /etc/redhat-release
