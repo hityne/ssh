@@ -100,7 +100,7 @@ elif [ "$main_no" = "9" ]; then
 	ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 	date -R
 elif [ "$main_no" = "10" ]; then
-	pass
+	wget https://github.com/hityne/ssh/raw/master/mytest.sh && chmod +x mytest.sh && bash mytest.sh && rm -y mytest.py
 	
 elif [ "$main_no" = "11" ]; then	
 	wget -qO- bench.sh | bash
