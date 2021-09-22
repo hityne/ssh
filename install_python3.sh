@@ -15,17 +15,17 @@ read -s -n1 -p "Press any key to continue..."
 
 
 echo ""
-read -p "Please choose the version of Python 3 [1. v3.8.12, 2. v3.9.7]: " version_no
+read -p "Please choose the version of Python3 [1. v3.8.12, 2. v3.9.7]: " version_no
 
 if [ "$version_no" = "1" ]; then
 	version_id='3.8.12'
-	echo "here"
 else
 	version_id='3.9.7'
 fi
 
 echo ""
 echo "Python$version_id will be installed."
+echo ""
 #安装依赖
 yum install openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel gcc-c++
 
