@@ -56,8 +56,6 @@ echo -e "  ${YELLOW}9.Set localtime to China zone${RES}                 ${YELLOW
 echo ""
 echo -e " ${YELLOW}11.Test speed (bench.sh)${RES}                       ${YELLOW}12.Install python3.9${RES}"
 echo ""
-echo -e " ${YELLOW}13.Install Aria2 and AriaNG${RES}                    "
-echo ""
 echo -e "${RED}Written by Richard, updated on 2021/09/21${RES}"
 echo "==========================================================================="
 
@@ -142,8 +140,6 @@ elif [ "$main_no" = "11" ]; then
 elif [ "$main_no" = "12" ]; then	
 	wget https://raw.githubusercontent.com/hityne/centos/main/install_python3.sh && chmod +x install_python3.sh && bash install_python3.sh	
 
-elif [ "$main_no" = "13" ]; then	
-	wget https://github.com/hityne/ssh/raw/master/install_aria2.sh && chmod +x install_aria2.sh && bash install_aria2.sh	
 	
 else
 exit 0
