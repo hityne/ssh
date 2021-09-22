@@ -56,7 +56,7 @@ echo -e "  ${YELLOW}9.Set localtime to China zone${RES}                 ${YELLOW
 echo ""
 echo -e " ${YELLOW}11.Test speed (bench.sh)${RES}                       ${YELLOW}12.Install python3.9${RES}"
 echo ""
-echo -e "${RED}Written by Richard, updated on 2021/09/21${RES}"
+echo -e "${RED}Written by Richard, updated on 2021/09/22${RES}"
 echo "==========================================================================="
 
 echo ""
