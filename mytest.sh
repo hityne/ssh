@@ -1,0 +1,35 @@
+#!/bin/sh
+
+echo ""
+echo -e "${BLUE}[1]系统版本号：${RES}"
+cat /etc/redhat-release
+echo ""
+echo -e "${BLUE}[2]系统内核：${RES}"
+uname -r
+echo ""
+echo -e "${BLUE}[3]查看BBR是否启动：${RES}"
+sysctl net.ipv4.tcp_congestion_control
+echo ""
+echo -e "${BLUE}[4]上次启动时间：${RES}"
+date -d "$(awk -F. '{print $1}' /proc/uptime) second ago" +"%Y-%m-%d %H:%M:%S"
+echo ""
+echo -e "${BLUE}[5]系统运行时间：${RES}"
+cat /proc/uptime| awk -F. '{run_days=$1 / 86400;run_hour=($1 % 86400)/3600;run_minute=($1 % 3600)/60;run_second=$1 % 60;printf("%d天%d时%d分%d秒\n",run_days,run_hour,run_minute,run_second)}'
+echo ""
+echo -e "${BLUE}[7]内存信息：${RES}"
+info_free=$(free -m)
+echo $info_free | awk '{print $7 "\t"$9"/" $8}'
+echo $info_free | awk '{print $14 "\t"$16"/" $15}'
+echo ""
+echo -e "${BLUE}[8]硬盘信息：${RES}"
+df -h
+echo ""
+echo -e "${BLUE}[9]防火墙状态：${RES}"
+firewall-cmd --state
+echo ""
+echo -e "${BLUE}[10]SELinux状态：${RES}"
+/usr/sbin/sestatus -v
+echo ""
+echo -e "${BLUE}[11]上次登录信息：${RES}"
+last | awk 'NR==2'
+echo ""
