@@ -38,7 +38,7 @@ echo -e "${BLUE}[9]防火墙状态：${RES}"
 firewall-cmd --state
 echo ""
 echo -e "${BLUE}[10]SELinux状态：${RES}"
-/usr/sbin/sestatus -v
+getenforce
 echo ""
 echo -e "${BLUE}[11]上次登录信息：${RES}"
 last | awk 'NR==2'
