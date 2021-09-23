@@ -9,11 +9,11 @@ if systemctl is-active docker &>/dev/null ;then
 		echo ""
 
 		docker pull filebrowser/filebrowser
-		docker run \
+		docker run -d \
 				--restart=always \
 			    -v /var/www/filebrowser/srv:/srv \
-			    -v /var/www/filebrowser/filebrowser.db:/database.db \
-			    -v /var/www/filebrowser/.filebrowser.json:/.filebrowser.json \
+			    -v /var/www/filebrowser/filebrowser.db:/etc/database.db \
+			    -v /var/www/filebrowser/.filebrowser.json:/etc/.filebrowser.json \
 			    -p 8001:80 \
 			    filebrowser/filebrowser
 
