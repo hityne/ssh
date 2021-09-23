@@ -10,6 +10,7 @@ if systemctl is-active docker &>/dev/null ;then
 		read -p "Please set your token: " token
 		echo ""
 
+		mkdir -p /var/www/aria2
 
 		docker run -d \
 				  --name aria2-pro \
@@ -24,8 +25,8 @@ if systemctl is-active docker &>/dev/null ;then
 				  -e LISTEN_PORT=6888 \
 				  -p 6888:6888 \
 				  -p 6888:6888/udp \
-				  -v $PWD/aria2-config:/config \
-				  -v $PWD/aria2-downloads:/downloads \
+				  -v /var/www/aria2/aria2-config:/config \
+				  -v /var/www/aria2/downloads:/downloads \
 				  p3terx/aria2-pro
 
 		echo ""
@@ -36,7 +37,7 @@ if systemctl is-active docker &>/dev/null ;then
 				  --name ariang \
 				  --log-opt max-size=1m \
 				  --restart unless-stopped \
-				  -p 6880:6880 \
+				  -p 8002:6880 \
 				  p3terx/ariang
 
 		echo ""
