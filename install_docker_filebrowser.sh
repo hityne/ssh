@@ -6,10 +6,11 @@ if systemctl is-active docker &>/dev/null ;then
 		echo ""
 		mkdir -p /var/www/filebrowser
 		echo "工作目录/var/www/html/fb"
+		echo ""
 
 		docker pull filebrowser/filebrowser
 		docker run \
-				-restart=always
+				--restart=always
 			    -v /var/www/filebrowser/srv:/srv \
 			    -v /var/www/filebrowser/filebrowser.db:/database.db \
 			    -v /var/www/filebrowser/.filebrowser.json:/.filebrowser.json \
@@ -18,6 +19,8 @@ if systemctl is-active docker &>/dev/null ;then
 
 		echo ""
 		echo "Filebrowser docker 已安装成功，默认账号密码为：admin。"
+		echo "端口映射： 8001 -> 80"
+		echo ""
 
 else
 		echo "docker未启动"

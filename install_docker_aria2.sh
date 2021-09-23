@@ -4,7 +4,7 @@ if systemctl is-active docker &>/dev/null ;then
 		echo "docker已经启动"
 		echo "现在开始安装docer aria2..."
 		echo ""
-		echo "Please open port 6800, 6880 and 6888 on the host."
+		echo "Please open port 6800, 6880, 6888 and 8002 on the host."
 
 		echo ""
 		read -p "Please set your token: " token
@@ -42,7 +42,7 @@ if systemctl is-active docker &>/dev/null ;then
 
 		echo ""
 		echo "Aria2 and AriaNG has been set up on your host."
-		echo "Vist http://yourip:6880 and config Aria2 RPC token."
+		echo "Vist http://yourip:8002 and config Aria2 RPC token."
 		echo "And then you can do your downloads freely."
 		echo ""
 
