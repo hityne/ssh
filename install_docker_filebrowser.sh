@@ -10,7 +10,7 @@ if systemctl is-active docker &>/dev/null ;then
 
 		docker pull filebrowser/filebrowser
 		docker run \
-				--restart=always
+				--restart=always \
 			    -v /var/www/filebrowser/srv:/srv \
 			    -v /var/www/filebrowser/filebrowser.db:/database.db \
 			    -v /var/www/filebrowser/.filebrowser.json:/.filebrowser.json \
