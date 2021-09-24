@@ -50,7 +50,7 @@ echo -e "  ${YELLOW}3.Install bt Panel${RES}                            ${YELLOW
 echo ""
 echo -e "  ${YELLOW}5.Modify SSH Port (for defaut port 22)${RES}        ${YELLOW}6.Unixbech一键跑分${RES}"
 echo ""
-echo -e "  ${YELLOW}7.Install docker and docker-compose${RES}                              ${YELLOW}8.Upgrade sqlite3${RES}" 
+echo -e "  ${YELLOW}7.Install docker and docker-compose${RES}           ${YELLOW}8.Upgrade sqlite3${RES}" 
 echo ""
 echo -e "  ${YELLOW}9.Set localtime to China zone${RES}                 ${YELLOW}10.VPS info${RES}"
 echo ""
@@ -88,8 +88,8 @@ elif [ "$main_no" = "6" ]; then
 	wget --no-check-certificate https://github.com/teddysun/across/raw/master/unixbench.sh && chmod +x unixbench.sh && ./unixbench.sh
 elif [ "$main_no" = "7" ]; then
 	read -p "do you want to install docker service? [y (default) or n] " bbb
-	if [ "$bbb" = "n"]; then
-		break;
+	if [ "$bbb" = "n" ]; then
+		break
 	else
 		curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 		systemctl enable docker
