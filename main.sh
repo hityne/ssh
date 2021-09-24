@@ -88,9 +88,7 @@ elif [ "$main_no" = "6" ]; then
 	wget --no-check-certificate https://github.com/teddysun/across/raw/master/unixbench.sh && chmod +x unixbench.sh && ./unixbench.sh
 elif [ "$main_no" = "7" ]; then
 	read -p "do you want to install docker service? [y (default) or n] " bbb
-	if [ "$bbb" = "n" ]; then
-		break
-	else
+	if [ "$bbb" != "n" ]; then
 		curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 		systemctl enable docker
 		systemctl start docker
@@ -99,16 +97,14 @@ elif [ "$main_no" = "7" ]; then
 		echo ""
 	fi
 	read -p "do you want to install docker-compose? [y (default) or n] " aaa
-	if [ "$aaa" = "n"]; then
-		exit 0;
-	else
+	if [ "$aaa" != "n"]; then
 		curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 		chmod +x /usr/local/bin/docker-compose
 		echo ""
+		docker-compose --version
 		echo "docker-compose has been installed."
 		echo ""
 	fi
-	echo ""
 elif [ "$main_no" = "8" ]; then
 	wget https://github.com/hityne/centos/raw/main/upgrade-sqlite3.sh && chmod a+x upgrade-sqlite3.sh && bash upgrade-sqlite3.sh
 	
