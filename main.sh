@@ -69,9 +69,12 @@ elif [ "$main_no" = "2" ]; then
 elif [ "$main_no" = "3" ]; then
 	yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && sh install.sh
 	echo ""
-	read -p "Do you want to remove the bind between this bt panel and your bt account? [y or n]" if_bt
-	if [ "if_bt" = "y" ]; then
+	read -p "Do you want to remove the bind between this bt panel and your bt account? [y or n] " if_bt
+	if [ "$if_bt" = "y" ]; then
 		rm -f /www/server/panel/data/bind.pl
+		echo "the bind.pl file has been removed."
+	else
+		echo "When you log in the panel, you need to provide your account information."
 	fi
 	echo ""
 
