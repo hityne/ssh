@@ -68,6 +68,13 @@ elif [ "$main_no" = "2" ]; then
 	install_bbr
 elif [ "$main_no" = "3" ]; then
 	yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && sh install.sh
+	echo ""
+	read -p "Do you want to remove the bind between this bt panel and your bt account? [y or n]" if_bt
+	if [ "if_bt" = "y" ]; then
+		rm -f /www/server/panel/data/bind.pl
+	fi
+	echo ""
+
 elif [ "$main_no" = "4" ]; then
 	wget -O v2ray.sh https://raw.githubusercontent.com/hityne/centos/ur/v2ray.sh && chmod a+x v2ray.sh && bash v2ray.sh
 elif [ "$main_no" = "5" ]; then
