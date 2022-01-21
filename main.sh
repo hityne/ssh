@@ -69,13 +69,24 @@ elif [ "$main_no" = "2" ]; then
 elif [ "$main_no" = "3" ]; then
 	yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && sh install.sh
 	echo ""
-	read -p "Do you want to remove the bind between this bt panel and your bt account? [y or n] " if_bt
-	if [ "$if_bt" = "y" ]; then
+	read -p "Do you want to degrade to version 7.7  [y or n] " if_degrade
+	if [ "$if_degrade" = "y" ]; then
+		wget http://download.bt.cn/install/update/LinuxPanel-7.7.0.zip
+		unzip LinuxPanel-*
+		cd panel
+		bash update.sh
+		cd .. && rm -f LinuxPanel-*.zip && rm -rf panel
 		rm -f /www/server/panel/data/bind.pl
-		echo "the bind.pl file has been removed."
+		echo "BT 7.7 has been installed successfully."
+		echo ""
+		read -p "Do you want to hack to happy 7.7  [y or n] " if_hack
+		if [ "$if_hack" = "y" ]; then
+			curl http://download.moetas.com/install/update6.sh|bash
+		fi
 	else
-		echo "When you log in the panel, you need to provide your account information."
+		echo "New BT version has been installed successfully."
 	fi
+	
 	echo ""
 
 elif [ "$main_no" = "4" ]; then
