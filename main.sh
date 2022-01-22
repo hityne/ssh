@@ -56,6 +56,8 @@ echo -e "  ${YELLOW}9.Set localtime to China zone${RES}                 ${YELLOW
 echo ""
 echo -e " ${YELLOW}11.Test speed (bench.sh)${RES}                       ${YELLOW}12.Install python3${RES}"
 echo ""
+echo -e "  ${YELLOW}13.Install Serverstatus${RES}                       ${YELLOW}14.Git Commands cheklist${RES}"
+echo ""
 echo -e "${RED}Written by Richard, updated on 2021/09/22${RES}"
 echo "==========================================================================="
 
@@ -142,7 +144,29 @@ elif [ "$main_no" = "11" ]; then
 elif [ "$main_no" = "12" ]; then	
 	wget https://github.com/hityne/ssh/raw/master/install_python3.sh && chmod +x install_python3.sh && bash install_python3.sh	
 
-	
+elif [ "$main_no" = "13" ]; then	
+	read -p "do you want to install ServerStatus server[0] or clien[1]? [0 (default) or 1] " ss_option
+	if [ "$ss_option" != "1" ]; then
+		mkdir /serverstatus
+		wget --no-check-certificate -qO /serverstatus/serverstatus-config.json https://raw.githubusercontent.com/cppla/ServerStatus/master/server/config.json && mkdir /serverstatus/serverstatus-monthtraffic    
+		docker run -d --restart=always --name=serverstatus -v /serverstatus/serverstatus-config.json:/ServerStatus/server/config.json -v /serverstatus/serverstatus-monthtraffic:/usr/share/nginx/html/json -p 35600:80 -p 35601:35601 cppla/serverstatus:latest
+		echo ""
+	else
+		mkdir /serverclient
+		wget --no-check-certificate -qO /serverclient/client-linux.py 'https://raw.githubusercontent.com/cppla/ServerStatus/master/clients/client-linux.py' 
+		echo "Please input SERVER ip and USER id(sxx):"
+		read -p "Please input SERVER ip: " SERVER_ip
+		read -p "Please input USER id: " USER_id
+		echo "=========================================="
+		echo SERVER ip="$SERVER_ip"
+		echo USER id="$USER_id"
+		echo "==========================================="
+		echo ""
+		nohup python /serverclient/client-linux.py SERVER={$SERVER_ip} USER={$USER_id} >/dev/null 2>&1 &
+
+	fi
+elif [ "$main_no" = "14" ]; then	
+	echo "COMING SOON"
 else
 exit 0
 
