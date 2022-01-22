@@ -95,7 +95,7 @@ if [ "$v2ray_no" = "1" ]; then
 
 	read -p "请设置端口号（默认24380）： " port
 	[ "$port" != "" ] && sed -i "3s/24380/$port/" /v2ray/config.json
-	[ "$port" = "" ] && port=35367
+	[ "$port" = "" ] && port=24380
 
 	read -p "请输入alterid（默认0）: " alterid
 	[ "$alterid" != "" ] && sed -i "10s/0/$alterid/" /v2ray/config.json
