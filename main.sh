@@ -145,6 +145,14 @@ elif [ "$main_no" = "12" ]; then
 	wget https://github.com/hityne/ssh/raw/master/install_python3.sh && chmod +x install_python3.sh && bash install_python3.sh	
 
 elif [ "$main_no" = "13" ]; then	
+	if systemctl is-active docker &>/dev/null ;then
+		echo "docker已经启动"
+	else
+		echo "docker未启动"
+		echo "请先启动docker服务"
+		echo ""
+		exit 0
+	fi
 	read -p "do you want to install ServerStatus server[0] or clien[1]? [0 (default) or 1] " ss_option
 	if [ "$ss_option" != "1" ]; then
 		mkdir /serverstatus

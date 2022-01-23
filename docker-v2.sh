@@ -101,6 +101,8 @@ if [ "$v2ray_no" = "1" ]; then
 	[ "$alterid" != "" ] && sed -i "10s/0/$alterid/" /v2ray/config.json
 
 	docker run -d --name v2ray_tcp --restart=always -v /v2ray:/etc/v2ray -p $port:$port v2fly/v2fly-core  v2ray -config=/etc/v2ray/config.json
+	
+	echo "生成客户端配置二维码"
 	check_config "/v2ray/config.json"
 
 elif [ "$v2ray_no" = "2" ]; then
@@ -135,9 +137,11 @@ elif [ "$v2ray_no" = "2" ]; then
 	echo "请为$urdomain申请SSL认证"
 	wget https://github.com/hityne/centos/raw/ur/site.config  -O -> /v2ray/site.config
 	echo "网站配置文件添加以下内容(/v2ray/site.config)："
-	cat /usr/local/etc/v2ray/site.config
+	cat /v2ray/site.config
 	echo "*******************"
 	echo ""
+	read -s -n1 -p "按任意键继续 ... "
+	echo "生成客户端配置二维码"
 	check_config "/v2ray/config2.json"
 
 
