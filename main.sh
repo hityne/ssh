@@ -150,6 +150,7 @@ elif [ "$main_no" = "13" ]; then
 		mkdir /serverstatus
 		wget --no-check-certificate -qO /serverstatus/serverstatus-config.json https://raw.githubusercontent.com/cppla/ServerStatus/master/server/config.json && mkdir /serverstatus/serverstatus-monthtraffic    
 		docker run -d --restart=always --name=serverstatus -v /serverstatus/serverstatus-config.json:/ServerStatus/server/config.json -v /serverstatus/serverstatus-monthtraffic:/usr/share/nginx/html/json -p 35600:80 -p 35601:35601 cppla/serverstatus:latest
+		echo "Pls visit http://yourip:35600 to check if it works."
 		echo ""
 	else
 		mkdir /serverclient
@@ -162,7 +163,7 @@ elif [ "$main_no" = "13" ]; then
 		echo USER id="$USER_id"
 		echo "==========================================="
 		echo ""
-		nohup python /serverclient/client-linux.py SERVER={$SERVER_ip} USER={$USER_id} >/dev/null 2>&1 &
+		nohup python /serverclient/client-linux.py SERVER=127.0.0.1 USER=s02 >/dev/null 2>&1 &
 
 	fi
 elif [ "$main_no" = "14" ]; then	
