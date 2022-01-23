@@ -54,11 +54,11 @@ echo -e "  ${YELLOW}7.Install docker and docker-compose${RES}           ${YELLOW
 echo ""
 echo -e "  ${YELLOW}9.Set localtime to China zone${RES}                 ${YELLOW}10.VPS info${RES}"
 echo ""
-echo -e " ${YELLOW}11.Test speed (bench.sh)${RES}                       ${YELLOW}12.Install python3${RES}"
+echo -e "  ${YELLOW}11.Test speed (bench.sh)${RES}                       ${YELLOW}12.Install python3${RES}"
 echo ""
-echo -e "  ${YELLOW}13.Install Serverstatus${RES}                       ${YELLOW}14.Git Commands cheklist${RES}"
+echo -e "  ${YELLOW}13.Install serverstatus${RES}                       ${YELLOW}14.Git Commands cheklist${RES}"
 echo ""
-echo -e "${RED}Written by Richard, updated on 2021/09/22${RES}"
+echo -e "${RED}Written by Richard, updated on 2022/01/23${RES}"
 echo "==========================================================================="
 
 echo ""
@@ -153,7 +153,7 @@ elif [ "$main_no" = "13" ]; then
 		echo ""
 		exit 0
 	fi
-	read -p "do you want to install ServerStatus server[0] or clien[1]? [0 (default) or 1] " ss_option
+	read -p "do you want to install ServerStatus server[0] or client[1]? [0 (default) or 1] " ss_option
 	if [ "$ss_option" != "1" ]; then
 		mkdir /serverstatus
 		wget --no-check-certificate -qO /serverstatus/serverstatus-config.json https://raw.githubusercontent.com/cppla/ServerStatus/master/server/config.json && mkdir /serverstatus/serverstatus-monthtraffic    
@@ -170,8 +170,8 @@ elif [ "$main_no" = "13" ]; then
 		echo SERVER ip="$SERVER_ip"
 		echo USER id="$USER_id"
 		echo "==========================================="
-		echo ""
 		nohup python /serverclient/client-linux.py SERVER=$SERVER_ip USER=$USER_id >/dev/null 2>&1 &
+		ps -e | grep python
 
 	fi
 elif [ "$main_no" = "14" ]; then	
