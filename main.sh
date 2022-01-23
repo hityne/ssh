@@ -163,7 +163,7 @@ elif [ "$main_no" = "13" ]; then
 		echo USER id="$USER_id"
 		echo "==========================================="
 		echo ""
-		nohup python /serverclient/client-linux.py SERVER=127.0.0.1 USER=s02 >/dev/null 2>&1 &
+		nohup python /serverclient/client-linux.py SERVER=$SERVER_ip USER=$USER_id >/dev/null 2>&1 &
 
 	fi
 elif [ "$main_no" = "14" ]; then	
