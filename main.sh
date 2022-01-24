@@ -54,7 +54,7 @@ echo -e "  ${YELLOW}7.Install docker and docker-compose${RES}           ${YELLOW
 echo ""
 echo -e "  ${YELLOW}9.Set localtime to China zone${RES}                 ${YELLOW}10.VPS info${RES}"
 echo ""
-echo -e "  ${YELLOW}11.Test speed (bench.sh)${RES}                       ${YELLOW}12.Install python3${RES}"
+echo -e "  ${YELLOW}11.Test speed (bench.sh)${RES}                      ${YELLOW}12.Install python3${RES}"
 echo ""
 echo -e "  ${YELLOW}13.Install serverstatus${RES}                       ${YELLOW}14.Git Commands cheklist${RES}"
 echo ""
@@ -171,7 +171,7 @@ elif [ "$main_no" = "13" ]; then
 		echo USER id="$USER_id"
 		echo "==========================================="
 		nohup python /serverclient/client-linux.py SERVER=$SERVER_ip USER=$USER_id >/dev/null 2>&1 &
-		ps -e | grep python
+		ps -e | grep "python"
 
 	fi
 elif [ "$main_no" = "14" ]; then	
