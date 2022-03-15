@@ -12,7 +12,7 @@ clear
 
 echo ""
 echo -e "${BLUE}[1]系统版本号：${RES}"
-cat /etc/redhat-release
+cat /etc/debian_version
 echo ""
 echo -e "${BLUE}[2]系统内核：${RES}"
 uname -r
@@ -35,10 +35,10 @@ echo -e "${BLUE}[8]硬盘信息：${RES}"
 df -h
 echo ""
 echo -e "${BLUE}[9]防火墙状态：${RES}"
-firewall-cmd --state
+# firewall-cmd --state
 echo ""
 echo -e "${BLUE}[10]SELinux状态：${RES}"
-getenforce
+# getenforce
 echo ""
 echo -e "${BLUE}[11]上次登录信息：${RES}"
 last | awk 'NR==2'
