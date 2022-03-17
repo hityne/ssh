@@ -142,7 +142,7 @@ elif [ "$main_no" = "11" ]; then
 	wget -qO- bench.sh | bash
 
 elif [ "$main_no" = "12" ]; then	
-	wget https://github.com/hityne/ssh/raw/master/install_python3.sh && chmod +x install_python3.sh && bash install_python3.sh	
+	wget https://github.com/hityne/ssh/raw/master/install_python3_on_debian10.sh && chmod +x install_python3_on_debian10.sh && bash install_python3_on_debian10.sh	
 
 elif [ "$main_no" = "13" ]; then	
 
