@@ -17,7 +17,8 @@ cd Python-3.9.11
 ./configure --enable-optimizations
 
 #编译安装
-make && make altinstall
+make -j $(nproc)
+make altinstall
 
 cd ..
 rm -rf Python-3.9.11
