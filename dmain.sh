@@ -92,7 +92,7 @@ elif [ "$main_no" = "3" ]; then
 	echo ""
 
 elif [ "$main_no" = "4" ]; then
-	wget -O v2ray.sh https://raw.githubusercontent.com/hityne/centos/ur/v2ray.sh && chmod a+x v2ray.sh && bash v2ray.sh
+	wget -O v2ray.sh https://raw.githubusercontent.com/hityne/ssh/master/v2ray.sh && chmod a+x v2ray.sh && bash v2ray.sh
 elif [ "$main_no" = "5" ]; then
 	echo ""
 	echo "Please input the ssh port you want to use"
