@@ -175,17 +175,26 @@ elif [ "$main_no" = "13" ]; then
 		echo SERVER ip="$SERVER_ip"
 		echo USER id="$USER_id"
 		echo "==========================================="
-		nohup python3.9 /serverclient/client-linux.py SERVER=$SERVER_ip USER=$USER_id >/dev/null 2>&1 &
-		ps -e | grep "python"
+		which python >/dev/null 2>&1
+		echo $?;
+		if [ $? == 0 ]; then
+			nohup python /serverclient/client-linux.py SERVER=$SERVER_ip USER=$USER_id >/dev/null 2>&1 &
+			ps -e | grep python
+		else
+			nohup python3 /serverclient/client-linux.py SERVER=$SERVER_ip USER=$USER_id >/dev/null 2>&1 &
+			ps -e | grep python3
+		fi
+		
+		
 
 	fi
 elif [ "$main_no" = "14" ]; then	
 	echo "COMING SOON"
 
 elif [ "$main_no" = "15" ]; then	
-	echo "COMING SOON"
+	echo "安装debian10 必要组件"
 	wget --no-check-certificate https://raw.githubusercontent.com/hityne/ssh/master/mydebian.sh && bash mydebian.sh && rm mydebian.sh
-	
+
 elif [ "$main_no" = "16" ]; then	
 	echo "安装aria2 and ariang docker"
 	wget --no-check-certificate https://raw.githubusercontent.com/hityne/ssh/master/aria2_docker_install.sh && bash aria2_docker_install.sh && rm aria2_docker_install.sh
