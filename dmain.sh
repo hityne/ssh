@@ -38,6 +38,9 @@ GetIp
 # ip_region=$(echo $ip_info | jq .region_name)
 # ip_city=$(echo $ip_info | jq .city)
 
+apt update
+apt install -y wget
+
 clear
 echo ""
 echo "==========================================================================="
