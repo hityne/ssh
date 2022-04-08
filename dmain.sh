@@ -38,8 +38,11 @@ GetIp
 # ip_region=$(echo $ip_info | jq .region_name)
 # ip_city=$(echo $ip_info | jq .city)
 
-apt update
-apt install -y wget
+which wget >/dev/null 2>&1
+if [ $? == 1 ]; then
+	apt update
+	apt install -y wget
+fi
 
 clear
 echo ""
