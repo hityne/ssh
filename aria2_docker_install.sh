@@ -21,12 +21,12 @@ if systemctl is-active docker &>/dev/null ;then
 				  -e UMASK_SET=022 \
 				  -e RPC_SECRET=$token \
 				  -e RPC_PORT=6800 \
-				  -p 6800:6800 \
+				  -p 16800:6800 \
 				  -e LISTEN_PORT=6888 \
-				  -p 6888:6888 \
-				  -p 6888:6888/udp \
-				  -v /var/www/aria2/aria2-config:/config \
-				  -v /var/www/aria2/downloads:/downloads \
+				  -p 16888:6888 \
+				  -p 16888:6888/udp \
+				  -v /root/aria2/config:/config \
+				  -v /root/aria2/downloads:/downloads \
 				  p3terx/aria2-pro
 
 		echo ""
@@ -37,12 +37,12 @@ if systemctl is-active docker &>/dev/null ;then
 				  --name ariang \
 				  --log-opt max-size=1m \
 				  --restart unless-stopped \
-				  -p 8002:6880 \
+				  -p 16880:6880 \
 				  p3terx/ariang
 
 		echo ""
 		echo "Aria2 and AriaNG has been set up on your host."
-		echo "Vist http://yourip:8002 and config Aria2 RPC token."
+		echo "Vist http://yourip:16880 and config Aria2 RPC token."
 		echo "And then you can do your downloads freely."
 		echo ""
 
