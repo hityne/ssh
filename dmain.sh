@@ -187,6 +187,7 @@ elif [ "$main_no" = "13" ]; then
 			nohup python /serverclient/client-linux.py SERVER=$SERVER_ip USER=$USER_id >/dev/null 2>&1 &
 			ps -e | grep python
 		else
+			echo "runing python3 ..."
 			nohup python3 /serverclient/client-linux.py SERVER=$SERVER_ip USER=$USER_id >/dev/null 2>&1 &
 			ps -e | grep python3
 		fi
