@@ -173,7 +173,7 @@ elif [ "$main_no" = "13" ]; then
 		echo SERVER ip="$SERVER_ip"
 		echo USER id="$USER_id"
 		echo "==========================================="
-		nohup python /serverclient/client-linux.py SERVER=$SERVER_ip USER=$USER_id >/dev/null 2>&1 &
+		nohup python3.9 /serverclient/client-linux.py SERVER=$SERVER_ip USER=$USER_id >/dev/null 2>&1 &
 		ps -e | grep "python"
 
 	fi
