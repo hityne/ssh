@@ -182,7 +182,7 @@ elif [ "$main_no" = "13" ]; then
 		echo USER id="$USER_id"
 		echo "==========================================="
 		which python >/dev/null 2>&1
-		echo $?;
+		echo $?
 		if [ $? == 0 ]; then
 			nohup python /serverclient/client-linux.py SERVER=$SERVER_ip USER=$USER_id >/dev/null 2>&1 &
 			ps -e | grep python
