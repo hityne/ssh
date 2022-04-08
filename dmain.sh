@@ -39,7 +39,7 @@ GetIp
 # ip_city=$(echo $ip_info | jq .city)
 
 which wget >/dev/null 2>&1
-if [ $? == 1 ]; then
+if [ $? -eq 0 ]; then
 	apt update
 	apt install -y wget
 fi
