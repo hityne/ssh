@@ -1,6 +1,4 @@
-
-#以下是一整个命令，一起复制运行即可。
-echo "version: '2'
+version: '2'
 services:
   db:
     image: mariadb:10.1
