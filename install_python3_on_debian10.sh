@@ -68,6 +68,7 @@ else
 
     # #检查是否安装成功
     virtualenv --version
+fi
 
 echo ""
 echo "The script runs to end."
