@@ -18,28 +18,56 @@ cd Python-3.9.11
 
 #编译安装
 make -j $(nproc)
-make altinstall
 
-cd ..
-rm -rf Python-3.9.11
-rm -f Python-3.9.11.tgz
+read -p "Please select install option: [0] keep original python3 (default) [1] create new python3 " py_option
 
-echo ""
-python3.9 --version
-pip3.9 --version
+if [ "$py_option" -ne "1" ]; then
+
+    make altinstall
+
+    cd ..
+    rm -rf Python-3.9.11
+    rm -f Python-3.9.11.tgz
+
+    echo ""
+    python3.9 --version
+    pip3.9 --version
 
 
-echo ""
-echo "The script is going to install virtualenv."
-echo ""
+    echo ""
+    echo "The script is going to install virtualenv."
+    echo ""
 
-read -s -n1 -p "Press any key to continue..." 
+    read -s -n1 -p "Press any key to continue..." 
 
-#为python3安装virtualenv
-pip3.9 install virtualenv
+    #为python3安装virtualenv
+    pip3.9 install virtualenv
 
-# #检查是否安装成功
-virtualenv --version
+    # #检查是否安装成功
+    virtualenv --version
+else
+    make install
+
+    cd ..
+    rm -rf Python-3.9.11
+    rm -f Python-3.9.11.tgz
+
+    echo ""
+    python3 --version
+    pip3 --version
+
+
+    echo ""
+    echo "The script is going to install virtualenv."
+    echo ""
+
+    read -s -n1 -p "Press any key to continue..." 
+
+    #为python3安装virtualenv
+    pip3 install virtualenv
+
+    # #检查是否安装成功
+    virtualenv --version
 
 echo ""
 echo "The script runs to end."
