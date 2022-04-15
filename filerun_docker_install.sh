@@ -4,7 +4,7 @@ mkdir /filerun /filerun/html /filerun/user-files /filerun/db
 
 cd /filerun
 
-wget -O docker-compose.yml https://raw.githubusercontent.com/hityne/centos/ur/docker-compose.yml
+wget -O docker-compose.yml https://github.com/hityne/ssh/raw/master/docker-compose.yml
 
 
 filerun_root_passwd=$(cat /proc/sys/kernel/random/uuid|cut -f1 -d"-")
