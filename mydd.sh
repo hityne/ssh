@@ -228,7 +228,8 @@ function Start() {
   echo "  23) Windows 7 Ent Lite(UEFI)"
   echo "  24) Windows Server 2008 Lite(UEFI)"
   echo "  25) Windows Server 2012 Lite(UEFI)"
-  echo "  77) Debian10 x64 (纯净)"
+  echo "  76) Debian 10 x64 (纯净)"
+  echo "  77) Debian 11 x64 (纯净)"
   echo "  78) win10 Pro for workstations (cn)"
   echo "  79) win10 Pro for workstations (en)"
   echo "  99) Custom image"
@@ -261,7 +262,8 @@ function Start() {
     23) echo -e "\nPassword: nat.ee\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/Core_Install.sh $NETSTR -dd $SYSMIRROR23 $DMIRROR ;;   
     24) echo -e "\nPassword: nat.ee\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/Core_Install.sh $NETSTR -dd $SYSMIRROR24 $DMIRROR ;;   
     25) echo -e "\nPassword: nat.ee\n"; read -s -n1 -p "Press any key to continue..." ; bash /tmp/Core_Install.sh $NETSTR -dd $SYSMIRROR25 $DMIRROR ;;   
-    77) echo -e "\nPassword: MoeClub.org\n"; read -s -n1 -p "Press any key to continue..." ; bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -a ;;
+    76) echo -e "\nPassword: MoeClub.org\n"; read -s -n1 -p "Press any key to continue..." ; bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -a ;;
+    77) echo -e "\nPassword: MoeClub.org\n"; read -s -n1 -p "Press any key to continue..." ; bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 11 -v 64 -a ;;
     78) echo -e "\nPassword: Teddysun.com\n"; read -s -n1 -p "Press any key to continue..." ; wget -qO DebianNET.sh qiu.sh/dd && bash DebianNET.sh -dd "https://dl.lamp.sh/iso/cn_windows10_21h1.gz" ;;   
     79) echo -e "\nPassword: Teddysun.com\n"; read -s -n1 -p "Press any key to continue..." ; wget -qO DebianNET.sh qiu.sh/dd && bash DebianNET.sh -dd "https://dl.lamp.sh/iso/en_windows10_21h1.gz" ;;   
     99)
