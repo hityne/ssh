@@ -11,6 +11,7 @@ filerun_root_passwd=$(cat /proc/sys/kernel/random/uuid|cut -f1 -d"-")
 filerun_user_passwd=$(cat /proc/sys/kernel/random/uuid|cut -f1 -d"-")
 
 touch /filerun/note.txt
+echo "The passwords:" > /filerun/note.txt
 echo "filerun_root_passwd: $filerun_root_passwd" >> /filerun/note.txt
 echo "filerun_user_passwd: $filerun_user_passwd" >> /filerun/note.txt
 
