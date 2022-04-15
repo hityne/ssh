@@ -4,13 +4,13 @@ if systemctl is-active docker &>/dev/null ;then
 		echo "docker已经启动"
 		echo "现在开始安装docer aria2..."
 		echo ""
-		echo "Please open port 6800, 6880, 6888 and 8002 on the host."
+		echo "Please open port 6800, 6880, 6888, 16880, 16888 on the host."
 
 		echo ""
 		read -p "Please set your token: " token
 		echo ""
 
-		mkdir -p /var/www/aria2
+		# mkdir -p /var/www/aria2
 
 		docker run -d \
 				  --name aria2-pro \
@@ -25,8 +25,8 @@ if systemctl is-active docker &>/dev/null ;then
 				  -e LISTEN_PORT=6888 \
 				  -p 16888:6888 \
 				  -p 16888:6888/udp \
-				  -v /root/aria2/config:/config \
-				  -v /root/aria2/downloads:/downloads \
+				  -v /aria2/config:/config \
+				  -v /aria2/downloads:/downloads \
 				  p3terx/aria2-pro
 
 		echo ""
