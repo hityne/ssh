@@ -112,7 +112,7 @@ elif [ "$main_no" = "5" ]; then
 	#Break here
 	read -n 1 -p "Press any key to continue..."
 	sed -i 's/#Port 22/Port '$ssh_port'/g' /etc/ssh/sshd_config
-	service sshd restart
+	systemctl restart ssh
 	echo""
 	echo "Service sshd has been restarted. Please use the new SSH port to login."
 elif [ "$main_no" = "6" ]; then
