@@ -56,7 +56,7 @@ echo -e "  ${YELLOW}3.Install bt Panel${RES}                            ${YELLOW
 echo ""
 echo -e "  ${YELLOW}5.Modify SSH Port (for defaut port 22)${RES}        ${YELLOW}6.Unixbech一键跑分${RES}"
 echo ""
-echo -e "  ${YELLOW}7.Install docker and docker-compose${RES}           ${YELLOW}8.Upgrade sqlite3${RES}" 
+echo -e "  ${YELLOW}7.Install docker and docker-compose${RES}           ${YELLOW}8.Install docker filerun${RES}" 
 echo ""
 echo -e "  ${YELLOW}9.Set localtime to China zone${RES}                 ${YELLOW}10.VPS info${RES}"
 echo ""
@@ -64,7 +64,7 @@ echo -e "  ${YELLOW}11.Test speed (bench.sh)${RES}                      ${YELLOW
 echo ""
 echo -e "  ${YELLOW}13.Install serverstatus${RES}                       ${YELLOW}14.Git Commands cheklist${RES}"
 echo ""
-echo -e "  ${YELLOW}15.Install essentials for Debian 10${RES}           ${YELLOW}16.Install aria2 docker${RES}"
+echo -e "  ${YELLOW}15.Install essentials for Debian 10${RES}           ${YELLOW}16.Install docker aria2 & ariang${RES}"
 echo ""
 echo -e "${RED}Written by Richard, updated on 2022/01/23${RES}"
 echo "==========================================================================="
@@ -137,7 +137,8 @@ elif [ "$main_no" = "7" ]; then
 		echo ""
 	fi
 elif [ "$main_no" = "8" ]; then
-	wget https://github.com/hityne/others/raw/main/upgrade-sqlite3.sh && chmod a+x upgrade-sqlite3.sh && bash upgrade-sqlite3.sh && rm upgrade-sqlite3.sh
+	echo "安装docker filerun"
+	wget --no-check-certificate https://raw.githubusercontent.com/hityne/ssh/master/filerun_docker_install.sh && bash filerun_docker_install.sh && rm filerun_docker_install.sh
 	
 elif [ "$main_no" = "9" ]; then
 	rm -rf /etc/localtime
@@ -203,7 +204,7 @@ elif [ "$main_no" = "15" ]; then
 	wget --no-check-certificate https://raw.githubusercontent.com/hityne/ssh/master/mydebian.sh && bash mydebian.sh && rm mydebian.sh
 
 elif [ "$main_no" = "16" ]; then	
-	echo "安装aria2 and ariang docker"
+	echo "安装docker aria2 & ariang "
 	wget --no-check-certificate https://raw.githubusercontent.com/hityne/ssh/master/aria2_docker_install.sh && bash aria2_docker_install.sh && rm aria2_docker_install.sh
 
 else
