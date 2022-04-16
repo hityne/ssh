@@ -35,7 +35,7 @@ echo -e "${BLUE}[8]硬盘信息：${RES}"
 df -h
 echo ""
 echo -e "${BLUE}[9]防火墙状态：${RES}"
-ufw status
+ufw status verbose
 echo ""
 # echo -e "${BLUE}[10]SELinux状态：${RES}"
 # # getenforce
