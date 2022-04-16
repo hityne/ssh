@@ -4,7 +4,7 @@
 apt update && apt dist-upgrade -y
 
 # 安装必要包
-apt install -y git wget curl vim
+apt install -y git wget curl vim ufw
 
 # vim右键复制粘贴
 wget https://raw.githubusercontent.com/hityne/others/main/vimrc.local && mv vimrc.local /etc/vim/
