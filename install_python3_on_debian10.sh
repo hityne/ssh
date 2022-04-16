@@ -18,8 +18,9 @@ cd Python-3.9.11
 
 #编译安装
 make -j $(nproc)
+echo "please select install option:"
 
-read -p "Please select install option: [0] keep original python3 (default) [1] create new python3 " py_option
+read -p "running: [0] make altinstall(python3.9) or [1] make install(python3) " py_option
 
 if [ "$py_option" -ne "1" ]; then
 
