@@ -35,11 +35,11 @@ echo -e "${BLUE}[8]硬盘信息：${RES}"
 df -h
 echo ""
 echo -e "${BLUE}[9]防火墙状态：${RES}"
-# firewall-cmd --state
+ufw status
 echo ""
-echo -e "${BLUE}[10]SELinux状态：${RES}"
-# getenforce
-echo ""
-echo -e "${BLUE}[11]上次登录信息：${RES}"
+# echo -e "${BLUE}[10]SELinux状态：${RES}"
+# # getenforce
+# echo ""
+echo -e "${BLUE}[10]上次登录信息：${RES}"
 last | awk 'NR==2'
 echo ""
