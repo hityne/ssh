@@ -13,8 +13,11 @@ wget https://raw.githubusercontent.com/hityne/others/main/vimrc.local && mv vimr
 sed -i "\$a\alias ls='ls --color=auto'" /etc/profile
 
 # 降低IPv6优先级，有限使用IPv4
-read -p "Do you want to decrease the priority of IPv6? [0] no (defaut) [1] yes: " if_option
-
-	if [ "$if_option" = "1" ]; then
+res=$(sed -n '/^precedence.*1000$/p' /etc/gai.conf)
+if [ -z "$res" ]; then 
+    read -p "Do you want to prior to use IPv4 instead of IPv6? [n] no (defaut) [y] yes: " if_option
+	if [ "$if_option" = "y" ]; then
         echo "precedence ::ffff:0:0/96 100" >>/etc/gai.conf
     fi
+
+fi
