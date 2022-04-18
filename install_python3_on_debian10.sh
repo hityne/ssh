@@ -20,7 +20,7 @@ cd Python-3.9.11
 make -j $(nproc)
 echo "please select install option:"
 
-read -p "running: [0] make altinstall(python3.9) or [1] make install(python3) " py_option
+read -p "which command you want to run: [0] make altinstall(python3.9)[default] or [1] make install(python3) " py_option
 
 if [ "$py_option" -ne "1" ]; then
 
