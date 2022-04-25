@@ -4,7 +4,7 @@
 apt update && apt dist-upgrade -y
 
 # 安装必要包
-apt install -y git wget curl vim ufw
+apt install -y git wget curl vim screen ufw
 
 # 降低IPv6优先级，有限使用IPv4
 res=$(sed -n '/^precedence.*100$/p' /etc/gai.conf)
