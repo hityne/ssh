@@ -8,7 +8,7 @@ echo ""
 read -s -n1 -p "Press any key to continue..." 
 
 apt update
-apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev
+apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev
 
 wget https://www.python.org/ftp/python/3.9.12/Python-3.9.12.tgz
 tar -xf Python-3.9.12.tgz
