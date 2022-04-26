@@ -69,7 +69,7 @@ if [ "$main_no" = "1" ]; then
 elif [ "$main_no" = "2" ]; then
 	install_bbr
 elif [ "$main_no" = "3" ]; then
-	yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && sh install.sh
+	wget -O install.sh http://download.bt.cn/install/install_6.0.sh && sh install.sh
 	echo ""
 	read -p "Do you want to degrade to version 7.7  [y or n] " if_degrade
 	if [ "$if_degrade" = "y" ]; then
