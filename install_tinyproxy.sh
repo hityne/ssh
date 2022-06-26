@@ -2,7 +2,7 @@ apt update
 apt install tinyproxy
 
 
-sed -i "s/Allow 127.0.0.1/#Allow 127.0.0.1/" tinyproxy.conf
+sed -i "s/Allow 127.0.0.1/#Allow 127.0.0.1/" /etc/tinyproxy/tinyproxy.conf
 
 clear
 echo ""
