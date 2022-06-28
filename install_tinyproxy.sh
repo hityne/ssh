@@ -37,7 +37,7 @@ elif [ "$main_no" = "3" ]; then
     service tinyproxy start
     service tinyproxy status
 elif [ "$main_no" = "4" ]; then
-    vim etc/tinyproxy/tinyproxy.conf
+    vim /etc/tinyproxy/tinyproxy.conf
 else
     exit 0
 fi
