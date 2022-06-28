@@ -34,6 +34,7 @@ elif [ "$main_no" = "2" ]; then
 
 elif [ "$main_no" = "3" ]; then
     ps -ef | grep tinyproxy | grep -v grep| awk '{print "kill -9 "$2}' | sh
+    sleep 1
     service tinyproxy start
     service tinyproxy status
 elif [ "$main_no" = "4" ]; then
