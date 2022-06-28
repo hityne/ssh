@@ -10,8 +10,7 @@
 # Description: executed when the system starts
 ### END INIT INFO
 
-service ntp stop                 #停止ntp服务
-ntpdate us.pool.ntp.org           #同步ntp时间
-service ntp start                #启动ntp服务
+/usr/sbin/ntpdate time.nist.gov|logger -t NTP
+/usr/sbin/hwclock -w
 
 exit 0
