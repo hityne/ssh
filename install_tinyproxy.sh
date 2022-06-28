@@ -31,7 +31,9 @@ elif [ "$tiny_no" = "2" ]; then
     apt remove -y tinyproxy
 
 elif [ "$tiny_no" = "3" ]; then
+    echo "before"
     ps -ef | grep tinyproxy | grep -v grep| awk '{print "kill -9 "$2}' | sh
+    echo "after"
     sleep 1
     service tinyproxy start
     service tinyproxy status
