@@ -32,7 +32,7 @@ elif [ "$tiny_no" = "2" ]; then
 
 elif [ "$tiny_no" = "3" ]; then
     echo "before"
-    ps -ef | grep tinyproxy | grep -v grep| awk '{print "kill -9 "$2}' | sh
+    ps -ef | grep tinyproxy | grep -v grep| awk '{print "kill -9 "$2}' | bash
     echo "after"
     sleep 1
     service tinyproxy start
