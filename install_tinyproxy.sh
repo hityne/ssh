@@ -1,6 +1,4 @@
 
-
-
 clear
 echo ""
 
@@ -11,9 +9,9 @@ echo "  3.reset tinyproxy                             4.Modify configuire"
 
 
 echo ""
-read -p "Please input the number you choose:" main_no
+read -p "Please input the number you choose:" tiny_no
 
-if [ "$main_no" = "1" ]; then
+if [ "$tiny_no" = "1" ]; then
     apt update
     apt install -y tinyproxy
     sed -i "s/Allow 127.0.0.1/#Allow 127.0.0.1/" /etc/tinyproxy/tinyproxy.conf
@@ -29,17 +27,16 @@ if [ "$main_no" = "1" ]; then
     echo ""  
     service tinyproxy restart
     service tinyproxy status
-elif [ "$main_no" = "2" ]; then
+elif [ "$tiny_no" = "2" ]; then
     apt remove -y tinyproxy
 
-elif [ "$main_no" = "3" ]; then
+elif [ "$tiny_no" = "3" ]; then
     ps -ef | grep tinyproxy | grep -v grep| awk '{print "kill -9 "$2}' | sh
     sleep 1
     service tinyproxy start
     service tinyproxy status
-elif [ "$main_no" = "4" ]; then
+elif [ "$tiny_no" = "4" ]; then
     vim /etc/tinyproxy/tinyproxy.conf
 else
     exit 0
 fi
-
