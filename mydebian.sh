@@ -15,9 +15,10 @@ wget https://raw.githubusercontent.com/hityne/others/main/vimrc.local && mv vimr
 
 # ssh控制台添加颜色
 sed -i "\$a\alias ls='ls --color=auto'" /etc/profile
+source /etc/profile
 
 # 降低IPv6优先级，优先使用IPv4
-read -p "Do you want to modifiy the priority of  IPv4=6 [n] no (defaut) [y] yes: " if_mod
+read -p "Do you want to modifiy the priority of  IPv6 [n] no (defaut) [y] yes: " if_mod
 if [ "$if_mod" = "y" ]; then
         res=$(sed -n '/^precedence.*100$/p' /etc/gai.conf)
 	if [ -z "$res" ]; then 
