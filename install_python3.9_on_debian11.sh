@@ -30,7 +30,8 @@ if [ "$py_option" = "1" ]; then
     cd ..
     rm -rf Python-3.9.16
     rm -f Python-3.9.16.tgz
-
+    
+    pip3 install --upgrade pip
     echo ""
     python3 --version
     pip3 --version
@@ -55,7 +56,8 @@ else
     cd ..
     rm -rf Python-3.9.16
     rm -f Python-3.9.16.tgz
-
+    
+    pip3.9 install --upgrade pip
     echo ""
     python3.9 --version
     pip3.9 --version
