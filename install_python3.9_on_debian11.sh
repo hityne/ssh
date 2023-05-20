@@ -22,31 +22,9 @@ echo "please select install option:"
 
 read -p "which command you want to run: [0] make altinstall(python3.9)[default] or [1] make install(python3) " py_option
 
-if [ "$py_option" -ne "1" ]; then
+if [ "$py_option" = "1" ]; then
 
-    make altinstall
-
-    cd ..
-    rm -rf Python-3.9.16
-    rm -f Python-3.9.16.tgz
-
-    echo ""
-    python3.9 --version
-    pip3.9 --version
-
-
-    echo ""
-    echo "The script is going to install virtualenv."
-    echo ""
-
-    read -s -n1 -p "Press any key to continue..." 
-
-    #为python3安装virtualenv
-    pip3.9 install virtualenv
-
-    # #检查是否安装成功
-    virtualenv --version
-else
+    echo "excuting make install ... "
     make install
 
     cd ..
@@ -66,6 +44,31 @@ else
 
     #为python3安装virtualenv
     pip3 install virtualenv
+
+    # #检查是否安装成功
+    virtualenv --version
+
+else
+    echo "excuting make altinstall ... "
+    make altinstall
+
+    cd ..
+    rm -rf Python-3.9.16
+    rm -f Python-3.9.16.tgz
+
+    echo ""
+    python3.9 --version
+    pip3.9 --version
+
+
+    echo ""
+    echo "The script is going to install virtualenv."
+    echo ""
+
+    read -s -n1 -p "Press any key to continue..." 
+
+    #为python3安装virtualenv
+    pip3.9 install virtualenv
 
     # #检查是否安装成功
     virtualenv --version
