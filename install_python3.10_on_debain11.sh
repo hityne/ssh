@@ -22,37 +22,19 @@ echo "please select install option:"
 
 read -p "which command you want to run: [0] make altinstall(python3.10)[default] or [1] make install(python3) " py_option
 
-if [ "$py_option" -ne "1" ]; then
-
-    make altinstall
-
-    cd ..
-    rm -rf Python-3.10.11
-    rm -f Python-3.10.11.tgz
-
+if [ "$py_option" = "1" ]; then
+    
+    echo "excuting make install ... "
     echo ""
-    python3.10 --version
-    pip3.10 --version
-
-
-    echo ""
-    echo "The script is going to install virtualenv."
-    echo ""
-
-    read -s -n1 -p "Press any key to continue..." 
-
-    #为python3.10安装virtualenv
-    pip3.10 install virtualenv
-
-    # #检查是否安装成功
-    virtualenv --version
-else
+    
     make install
 
     cd ..
     rm -rf Python-3.10.11
     rm -f Python-3.10.11.tgz
-
+    
+    pip3 install --upgrade pip
+    
     echo ""
     python3 --version
     pip3 --version
@@ -69,6 +51,37 @@ else
 
     # #检查是否安装成功
     virtualenv --version
+    
+else
+    
+    echo "excuting make altinstall ... "
+    echo ""
+    
+    make altinstall
+
+    cd ..
+    rm -rf Python-3.10.11
+    rm -f Python-3.10.11.tgz
+    
+    pip3.10 install --upgrade pip
+    
+    echo ""
+    python3.10 --version
+    pip3.10 --version
+
+
+    echo ""
+    echo "The script is going to install virtualenv."
+    echo ""
+
+    read -s -n1 -p "Press any key to continue..." 
+
+    #为python3.10安装virtualenv
+    pip3.10 install virtualenv
+
+    # #检查是否安装成功
+    virtualenv --version
+
 fi
 
 echo ""
