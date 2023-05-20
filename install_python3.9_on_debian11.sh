@@ -25,6 +25,8 @@ read -p "which command you want to run: [0] make altinstall(python3.9)[default] 
 if [ "$py_option" = "1" ]; then
 
     echo "excuting make install ... "
+    echo ""
+    
     make install
 
     cd ..
@@ -51,6 +53,8 @@ if [ "$py_option" = "1" ]; then
 
 else
     echo "excuting make altinstall ... "
+    echo ""
+    
     make altinstall
 
     cd ..
