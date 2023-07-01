@@ -14,7 +14,7 @@ wget https://www.python.org/ftp/python/3.9.16/Python-3.9.16.tgz
 tar -xf Python-3.9.16.tgz
 
 cd Python-3.9.16
-./configure --enable-optimizations
+./configure --enable-optimizations --with-ssl
 
 #编译安装
 make -j $(nproc)
