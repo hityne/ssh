@@ -14,7 +14,7 @@ wget https://www.python.org/ftp/python/3.10.11/Python-3.10.11.tgz
 tar -xf Python-3.10.11.tgz
 
 cd Python-3.10.11
-./configure --enable-optimizations
+./configure --enable-optimizations --with-ssl
 
 #编译安装
 make -j $(nproc)
